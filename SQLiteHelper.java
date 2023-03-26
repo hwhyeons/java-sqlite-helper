@@ -56,7 +56,7 @@ public class SQLiteHelper {
         return execute(sql,false,null,param);
     }
 
-    public List<List<Object>> executeMany(String sql, List<List<?>> data) throws Exception{
+    public List<List<Object>> executeMany(String sql, List<List<Object>> data) throws Exception{
         return execute(sql,true,data,null);
     }
 
@@ -85,7 +85,7 @@ public class SQLiteHelper {
         getConnectionInst().rollback();
     }
 
-    private List<List<Object>> execute(String sql, boolean isMany, List<List<?>> dataList, Object[][] dataArray) throws SQLException{
+    private List<List<Object>> execute(String sql, boolean isMany, List<List<Object>> dataList, Object[][] dataArray) throws SQLException{
         Connection connection = getConnectionInst();
         ResultSet rs = null;
         PreparedStatement pstmt = null;
@@ -150,7 +150,7 @@ public class SQLiteHelper {
         return execute(sql,false,null,null);
     }
 
-    public List<List<Object>> execute(String sql, List<?> data) throws Exception {
+    public List<List<Object>> execute(String sql, List<Object> data) throws Exception {
         ArrayList<List<?>> param = new ArrayList<>();
         param.add(data);
         return execute(sql,false, param,null);
